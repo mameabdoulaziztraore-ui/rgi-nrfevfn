@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADA AGRO-BUSINESS Etablissement Traoré</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        /* Header vert foncé comme sur ta capture */
+        .top-header {
+            background: #1B5E20;
+            padding: 1.2rem 0;
+            color: white;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .brand img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            background: white;
+            padding: 5px;
+            border-radius: 8px;
+        }
+        
+        .brand-text h1 {
+            font-size: 2rem;
+            color: white;
+            line-height: 1.1;
+            font-weight: 700;
+        }
+        
+        .brand-text span {
+            display: block;
+            font-size: 1.1rem;
+            color: white;
+            font-weight: 400;
+        }
+        
+        /* Menu bandeau jaune-vert */
+        nav {
+            background: #C5E063;
+            padding: 1rem 0;
+            border-bottom: 4px solid #2E7D32;
+        }
+        
+        nav .container {
+            display: flex;
+            gap: 40px;
+        }
+        
+        nav a {
+            color: #1B5E20;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Section Accueil */
+        #accueil {
+            padding: 3rem 0;
+            background: #F9F9F9;
+        }
+        
+        #accueil h2 {
+            color: #2E7D32;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        #accueil p {
+            font-size: 1.1rem;
+            max-width: 800px;
+        }
+        
+        /* Section Produits */
+        #produits {
+            padding: 3rem 0;
+        }
+        
+        #produits h2 {
+            color: #2E7D32;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Nouveau : Titre des sous-parties */
+        .sub-section-title {
+            color: #1B5E20;
+            font-size: 1.4rem;
+            margin: 2.5rem 0 1.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #C5E063;
+        }
+        
+        .product-card {
+            display: flex;
+            border: 2px solid #C5E063;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            background: white;
+        }
+        
+        .product-image {
+            width: 40%;
+            min-width: 250px;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .product-info {
+            width: 60%;
+            padding: 1.5rem 2rem;
+        }
+        
+        .product-info .category {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-info h3 {
+            color: #1B5E20;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .product-info h4 {
+            color: #333;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .product-info ul {
+            padding-left: 1.2rem;
+        }
+        
+        .product-info li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Section Contact */
+        #contact {
+            background: #2E7D32;
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        #contact h2 {
+            color: #FFEB3B;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .contact-grid {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        
+        .contact-info strong {
+            color: #FFEB3B;
+        }
+        
+        form input, form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        form button {
+            background: #FFEB3B;
+            color: #1B5E20;
+            border: none;
+            padding: 0.9rem 1.8rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        form button:hover {
+            background: #FDD835;
+        }
+        
+        footer {
+            background: #1B5E20;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive mobile */
+        @media (max-width: 768px) {
+            .product-card {
+                flex-direction: column;
+            }
+            .product-image, .product-info {
+                width: 100%;
+            }
+            nav .container {
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            .brand {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        button.whatsapp {
+    margin-top: 10px;
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    </style>
+</head>
+<body>
+    <!-- Header avec logo -->
+    <div class="top-header">
+        <div class="container">
+            <div class="brand">
+                <img src="image/log.jpeg" alt="Logo ADA AGRO-BUSINESS">
+                <div class="brand-text">
+                    <h1>ADA AGRO-BUSINESS
+                        <span>Etablissement TRAORE</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu -->
+    <nav>
+        <div class="container">
+            <a href="#accueil">Accueil</a>
+            <a href="#produits">Produits</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Section Accueil -->
+    <section id="accueil">
+        <div class="container">
+            <h2>Bienvenue chez ADA AGRO-BUSINESS</h2>
+            <p>
+                <strong>ADA AGRO-BUSINESS</strong> est votre fournisseur de confiance en semences certifiées et matériaux agricoles au Sénégal. 
+                Nous accompagnons les agriculteurs, coopératives et exploitations avec des produits de qualité pour améliorer les rendements et moderniser l'agriculture. 
+               <br> Notre mission : vous fournir les meilleurs outils pour une agriculture performante et durable. <br>
+            </p>
+        </div>
+    </section>
+    
+
+    <!-- Section Produits avec sous-parties -->
+    <section id="produits">
+        <div class="container">
+            <h2>Nos Produits</h2>
+    </div>
+    <nav>
+        <div class="container">
+            <a href="#semences">Semences</a>
+            <a href="#produits phytosanitaires">Produits Phytosanitaires</a>
+            <a href="#matériels">Matériels</a>
+        </div>
+    </nav>
+            
+            <!-- Sous-partie 1 : Semences -->
+            <section id="semences">
+        <div class="container">
+            <h3 class="sub-section-title">Semences</h3>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/oignon.jpeg" alt="OIGNON ROUGE MORADA DE AMPOSTA">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>OIGNON ROUGE MORADA DE AMPOSTA</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>C'est une variété Espagnole réputée pour sa saveur douce, sucrée et sa couleur rouge violacée</li>
+                        <li>Adapté aux régions à hivers doux, il produit de gros bulbes ronds (6-8CM) très compacts, excellents pour la conservation (plus de 6 mois)</li>
+                        <li>Idéal cru en salade ou cuit</li>
+                    </ul>
+                    <button class="whatsapp" onclick="order('OIGNON ROUGE MORADA DE AMPOSTA')">Commander</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/eden.jpeg" alt="LAITUE EDEN">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>LAITUE EDEN</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>C'est une laitue de type ICEBERG qui possède une excellente résistance aux fortes températures</li>
+                        <li>Forme une grosse pomme bien compacte et se conserve bien après récolte</li>
+                    </ul>
+                                        <button class="whatsapp" onclick="order('LAITUE EDEN')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/goliath.jpeg" alt="POIVRON GOLIATH">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>POIVRON GOLIATH</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Elle est supérieure aux variétés traditionnelles</li>
+                        <li>GOLIATH est très vigoureux et est faisable durant toute l'année</li>
+                    </ul>
+                                        <button class="whatsapp" onclick="order('POIVRON GOLIATH')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/gombo.jpeg" alt="GOMBO HYBRIDE JKOH 540">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>GOMBO HYBRIDE JKOH 540</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Très bonne tolérance à la chaleur et aux maladies</li>
+                        <li>Rendement exceptionnel et précoce </li>
+                        <li>Idéal pour une culture commerciale et des récoltes abondantes</li>
+                    </ul>
+                    <button class="whatsapp" onclick="order('GOMBO HYBRIDE JKOH 540')">Commander</button>
+
+                </div>
+            </div>
+
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/cynodon.jpeg" alt="CYNODON DACTYLON">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>CYNODON DACTYLON</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>C'est une graminée vivace tropicale idéale pour les climats chauds et secs, réputée pour sa très haute résistance à la sécheresse, au piétinement et sa capacité d'auto réparation</li>
+                        <li>Il forme un gazon dense et fin, parfait pour les zones ensoleillées, les terrains de sport et les jardins nécessitant peu d'eau</li>
+                    </ul>
+                                        <button class="whatsapp" onclick="order('CYNODON DACTYLON')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/aubergine.jpeg" alt="AUBERGINE BLACK BEAUTY">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>AUBERGINE BLACK BEAUTY</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>C'est une variété vigoureuse </li>
+                        <li>Chair crémeuse, douce et sans amerthume</li>
+                        <li>Couleur noir violacé, peau très brillante, forme ovoide à cotelée, de 13-19 cm de long </li>
+                    </ul>
+                                        <button class="whatsapp" onclick="order('AUBERGINE BLACK BEAUTY')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/choux.jpeg" alt="CHOUX TROPICANA HYBRIDE">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>CHOUX TROPICANA HYBRIDE</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>C'est une variété hybride  </li>
+                        <li>Idéal pour sa capacité de devenir performant en saison chaude et humide</li>
+                    </ul>
+                                        <button class="whatsapp" onclick="order('CHOUX TROPICANA HYBRIDE')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/assila.jpeg" alt="TOMATE ASSILA">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>TOMATE ASSILA</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Elle offre des atouts appréciables aux cultivateurs  </li>
+                        <li>Elle est très productive et ses fruits peuvent peuser 100 à 150 GRS chacune</li>
+                    </ul>
+                                        <button class="whatsapp" onclick="order('TOMATE ASSILA')">Commander</button>
+
+                </div>
+            </div>
+            
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/mais.jpeg" alt="MAIS HYBRIDE JKMH 45">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>MAIS HYBRIDE JKMH 45</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Potentiel de rendement élevé </li>
+                        <li>Hybride stable avec une large adaptabilité</li>
+                        <li>Tolérant aux maladies</li>
+                        <li>Adapté aux sols légers et tolérant une certaine variabilité climatique</li>
+                    </ul>
+                    <button class="whatsapp" onclick="order('MAIS HYBRIDE JKMH45')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/mil.jpeg" alt="MIL JKBH 26">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>MIL JKBH 26</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Rendement élevé en grain et en fourage sec </li>
+                        <li>Hybride, stable et très résistant</li>
+                        <li>Tolérant aux maladies</li>
+                    </ul>
+                                        <button class="whatsapp" onclick="order('MIL JKBH 26')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/copenhague.jpeg" alt="CHOUX ORDINAIRE MARCHE DE COPENHAGUE">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>CHOUX ORDINAIRE MARCHE DE COPENHAGUE</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>C'est une variété ancienne rustique, au feuillage peu développé, vert clair et lisse</li>
+                        <li>Produit des pommes rondes, compactes très grosses </li>
+                        <li>Peuvent peser jusqu'à environ 1 à 1.5 KG</li>
+                        <li>Qualité gustative excellente</li>
+                    </ul>
+                                        <button class="whatsapp" onclick="order('CHOUX ORDINAIRE MARCHE DE COPENHAGE')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/papaye.jpeg" alt="PAPAYE F1 GORTEX">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>PAPAYE F1 GORTEX</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Une variété hybride de papaye, de type Sud-Est asiatique</li>
+                        <li> Le poids moyen des fruits est d'environ 1 KG </li>
+                        <li>Avec une saveur très forte et a une teneur élevée en sucre 13%</li>
+                    </ul>
+                                        <button class="whatsapp" onclick="order('PAPAYE F1 GORTEX')">Commander</button>
+
+                </div>
+            </div>
+<div class="product-card">
+                <div class="product-image">
+                    <img src="image/pastèque.jpeg" alt="PASTEQUE GREY BELL VIKIMA">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>PASTEQUE GREY BELL VIKIMA</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>C'est une variété très productive</li>
+                        <li>Les poids des fruits peut varier entre 11 à 13 KGS</li>
+                    </ul>
+                                        <button class="whatsapp" onclick="order('PASTEQUE GREY BELL VIKIMA')">Commander</button>
+
+                </div>
+            </div>
+<div class="product-card">
+                <div class="product-image">
+                    <img src="image/galmi.jpeg" alt="OIGNON VIOLET DE GALMI">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>OIGNON VIOLET DE GALMI</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>IL nous vient de région tropicale</li>
+                        <li>Il est cultivable en saison sèche et fraiche </li>
+                        <li>Cette variété est très résistible aux maladies et a un rendement exceptionnel </li>
+                    </ul>
+                                        <button class="whatsapp" onclick="order('OIGNON VIOLET DE GALMI')">Commander</button>
+
+                </div>
+            </div>
+<div class="product-card">
+                <div class="product-image">
+                    <img src="image/dragon.jpeg" alt="CHOU HYBRIDE DRAGON">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>CHOU HYBRIDE DRAGON</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>C'est une variété issue du  coisements entre 2 variétés de choux dans le but d'obtenir une variété plus résistante</li>
+                        <li>Il est très résistants face aux maladies et est très productif</li>
+                        <li>Adapté à des conditions climatiques particulières telles que: la chaleur et le froid</li>
+                    </ul>
+                                        <button class="whatsapp" onclick="order('CHOU HYBRIDE DRAGON')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+            <div class="product-image">
+                    <img src="image/bombardier.jpeg" alt="PIMENT BOMBARDIER">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>PIMENT BOMBARDIER</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Très haut rendement</li>
+                        <li>Haute tolérance aux virus</li>
+                        <li>Excellente tenue après récolte</li>
+                    </ul>
+                                        <button class="whatsapp" onclick="order('PIMENT BOMBARDIER')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+            <div class="product-image">
+                    <img src="image/mongal.jpeg" alt="TOMATE MONGAL F1">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>TOMATE MONGAL F1</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Potentiel de production très élevé avec une floraison groupée</li>
+                        <li>Tolérant à la chaleur</li>
+                        <li>Le poids des fruits varie entre 150-180 GRS</li>
+                    </ul>
+                    <button class="whatsapp" onclick="order('TOMATE MONGAL F1')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+            <div class="product-image">
+                    <img src="image/simbad.jpeg" alt="POIVRON SIMBAD F1">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>POIVRON SIMBAD F1</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Plante vigoureuse avec une excellente couverture foliaire</li>
+                        <li>Capable de supporter une charge de fruits importante</li>
+                        <li>Rendement très élevé avec une production continue sur une longue période</li>
+                    </ul>
+                                        <button class="whatsapp" onclick="order('POIVRON SIMBAD F1')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+            <div class="product-image">
+                    <img src="image/kalenda.jpeg" alt="AUBERGINE KALENDA F1">
+                </div>
+                <div class="product-info">
+                    <div class="category">Semence agricole</div>
+                    <h3>AUBERGINE KALENDA F1</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Plante puissante, érigée et très productive</li>
+                        <li>Montre une bonne tolérance générale aux maladies fongiques courantes du feuillage</li>
+                        <li>Sa fermeté en fait une variété de choix pour les circuits commerciaux longs (Résistance au transport)</li>
+                    </ul>
+                                        <button class="whatsapp" onclick="order('AUBERGINE KALENDA F1')">Commander</button>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <!-- Sous-partie 2 : Produits Phytosanitaires -->
+            <section id="produits phytosanitaires">
+        <div class="container">
+            <h3 class="sub-section-title">Produits Phytosanitaires</h3>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/tralant.jpeg" alt="TRALANT 108 EC">
+                </div>
+                <div class="product-info">
+                    <div class="category">Herbicide Sélectif</div>
+                    <h3>TRALANT 108 EC</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                   <li>Elle a pour matière active HALOXYFOP R METHYL</li> 
+                    <li>C'est un herbicide sélectif de post-levée. Il est utilisable 20 jours après la levée </li>
+                   <li>Il élimine les mauvaises herbes de l'arachide, l'oignon, du coton et des cultures maraichères</li> 
+                    </ul>
+                                                            <button class="whatsapp" onclick="order('TRALANT 108 EC')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/kapytal.jpeg" alt="LA POUDRE KAPYTAL">
+                </div>
+                <div class="product-info">
+                    <div class="category">Insecticide Fongicide</div>
+                    <h3>LA POUDRE KAPYTAL</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Pour une très bonne protection de vos semences tel que l'arachide en cette période d'hivernage.Utilisez la poudre Kapytal</li>
+                        <li>Cet insecticide fongicide composé de 250G/KGDE THIAMEHOXAME et de 125G/KG de PROPICONAZOLE. La solution pour la protection de vos graines à l'intérieur du sol</li>
+                        <li>Disponible en sachet de 50G et carton de 100 sachets</li>
+                    </ul>
+                                                            <button class="whatsapp" onclick="order('POUDRE KAPYTAL')">Commander</button>
+
+                </div>
+            </div>
+
+            <!-- Sous-partie 3 : Matériels -->
+            <section id="matériels">
+        <div class="container">
+            <h3 class="sub-section-title">Matériels</h3>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/groupe.jpeg" alt="GROUPE ELECTROGENE 2.5 KVA">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>GROUPE ELECTROGENE 2.5 KVA</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Système de démarrage: ELECTRIQUE ET MANUEL</li>
+                        <li>Combustible: ESSENCE</li>
+                        <li>Fréquence de cotation(HZ): 50/60</li>
+                        <li>Tension de cotation(V): 110/120/220/230/240</li>
+                        <li>Puissance de cotation(KVA): 2/2.3 </li>
+                        <li>Puissance maxi(KVA): 2.2/2.5</li>
+                        <li>Capacité du réservoir à carburant(L): 1</li>
+                        <li>Consommation de carburant (L/H): 1.02</li>
+                        <li>Capacité d'huile moteur: 0.6</li>
+                        <li>Poids net (KG): 37.5</li>
+                    </ul>
+                                                            <button class="whatsapp" onclick="order('GROUPE ELECTROGENE 2.5 KVA')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/pompe.jpeg" alt="PULVERISATEUR ELECTRIQUE ET MANUEL ">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>PULVERISATEUR ELECTRIQUE ET MANUEL</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>C'est un pulvérisateur qui est à la fois automatique et manuel</li>
+                        <li>Par exemple, après un travail dur et intense, la batterie peut se décharger. Dans ce cas on peut utiliser la fonction manuelle pour finaliser le travail</li>
+                    </ul>
+                                                            <button class="whatsapp" onclick="order('PULVERISATEUR ELECTRIQUE ET MANUEL')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/pulmic.jpeg" alt="PULVERISATEUR PULMIC RAPTOR  ">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>PULVERISATEUR PULMIC RAPTOR </h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>A une capacité de 16 litres</li>
+                        <li>Bretelles rembourrées et réglables</li>
+                        <li>Lance en fibre de verre, poignée ergonomique</li>
+                        <li>Est fait pour les phytosanitaires, herbicides et traitements foliaires</li>
+                    </ul>
+                                                            <button class="whatsapp" onclick="order('PULVERISATEUR PULMIC RAPTOR ')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/pulverisateur moteur.jpeg" alt="PULVERISATEUR A MOTEUR 7 HP">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>PULVERISATEUR A MOTEUR 7 HP</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Une capacité de 300 Litres</li>
+                        <li>Un moteur à essence très puissant </li>
+                        <li>Un chariot pratique et maniable</li>
+                        <li>Haute portée pour un traitement efficace </li>
+                    </ul>
+                                        <button class="whatsapp" onclick="order('PULVERISATEUR A MOTEUR 7 HP')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/atomiseur.jpeg" alt="ATOMISEUR PULMIC RAPTOR">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>ATOMISEUR PULMIC RAPTOR</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Très solide</li>
+                        <li>Pompe d'impulsion à double piston</li>
+                        <li>Capacité du réservoir de liquide: 14 litres</li>
+                        <li>Capacité du réservoir de carburant: 1.3 litres</li>
+                    </ul>
+                                                            <button class="whatsapp" onclick="order('ATOMISEUR PULMIC RAPTOR')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/tariere.jpeg" alt="TARIERE THERMIQUE">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>TARIERE THERMIQUE</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>3 mèches: petite, moyenne et grande</li>
+                        <li>Très puissante et robuste</li>
+                        <li>Faible consommation</li>
+                        <li>Mèche de 80 CM</li>
+                    </ul>
+                                                            <button class="whatsapp" onclick="order('TARIERE THERMIQUE')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/debrou.jpeg" alt="DEBROUSSAILLE THERMIQUE MULTI FONCTION">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>DEBROUSSAILLE THERMIQUE MULTI FONCTION</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Indispensable pour couper l'herbe et les broussailles</li>
+                        <li>Très efficace</li>
+                        <li>Très polyvalent</li>
+                    </ul>
+                                                            <button class="whatsapp" onclick="order('DEBROUSSAILLE THERMIQUE MULTI FONCTION')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/tronc.jpeg" alt="TRONÇONNEUSE ROBUSTE">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>TRONÇONNEUSE ROBUSTE</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Equipée d'une lame de 01 M</li>
+                        <li>Il est utile pour l'abattage des arbres, la taille des haies etc</li>
+                    </ul>
+                                                            <button class="whatsapp" onclick="order('TRONÇONNEUSE ROBUSTE')">Commander</button>
+                                        
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/motoculpteur.jpeg" alt="MOTOCULPTEUR">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>MOTOCULPTEUR</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Multifonctionroule</li>
+                        <li>Très solide et résistant</li>
+                    </ul>
+                                                                                <button class="whatsapp" onclick="order('MOTOCULPTEUR')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/rouleau tuyau arrosage 50.jpeg" alt="ROULEAU TUYAU ARROSAGE">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>ROULEAU TUYAU ARROSAGE</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Diamètre 32</li>
+                        <li>Très solide et résistant</li>
+                    </ul>
+                                                                                <button class="whatsapp" onclick="order('ROULEAU TUYAU ARROSAGE')">Commander</button>
+
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/rouleau tuyau arrosage.jpeg" alt="ROULEAU TUYAU ARROSAGE">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>ROULEAU TUYAU ARROSAGE</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Diamètre 19</li>
+                        <li>Très solide et résistant</li>
+                    </ul>
+                                                                                <button class="whatsapp" onclick="order('ROULEAU TUYAU ARROSAGE')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/rouleau goutte.jpeg" alt="ROULEAU GOUTTE A GOUTTE">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>ROULEAU GOUTTE A GOUTTE</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>400 m</li>
+                        <li>Pour arbre fruitier</li>
+                    </ul>
+                                                            <button class="whatsapp" onclick="order('ROULEAU GOUTTE A GOUTTE')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/rouleau goutte 2.300.jpeg" alt="ROULEAU GOUTTE A GOUTTE">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>ROULEAU GOUTTE A GOUTTE</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>2300 m</li>
+                        <li>Pour cultures maraîchères</li>
+                    </ul>
+                                                                                <button class="whatsapp" onclick="order('ROULEAU GOUTTE A GOUTTE')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/goutte a goutte laser.jpeg" alt="GOUTTE A GOUTTE LASER SPRAY ET DEPART">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>GOUTTE A GOUTTE LASER SPRAY ET DEPART</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Rouleau de 200 m</li>
+                        <li>Diamètre 32</li>
+                    </ul>
+    <button class="whatsapp" onclick="order(' GOUTTE A GOUTTE LASER SPRAY ET DEPART')">Commander</button>
+</div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/arroseur.jpeg" alt="ARROSEUR ROTATIF">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>ARROSEUR ROTATIF</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Ajustable</li>
+                        <li>Se branche à un tuyau d'arrosage standard</li>
+                        <li>Les jets d'eau tournent pour couvrir une large zone</li>
+                        <li>Permet un arrosage uniforme sans effort</li>
+                    </ul>
+                                                                                <button class="whatsapp" onclick="order('ARROSEUR ROTATIF')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/rouleau ombriere.jpeg" alt="ROULEAU OMBRIERE">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>ROULEAU OMBRIERE</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Réduit l'exposition directe au soleil</li>
+                        <li>Très résistant</li>
+                        <li>Laisse passer l'air et l'eau</li>
+                        <li>Protège les cultures</li>
+                    </ul>
+                                                                                <button class="whatsapp" onclick="order('ROULEAU OMBRIERE')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/filet anti insecte.jpeg" alt="FILET DE SERRE (ANTI INSECTE)">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>FILET DE SERRE (ANTI INSECTE)</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Protège les cultures</li>
+                        <li>Ameliore la croissance des cultures</li>
+                        <li>100 m de long</li>
+                        <li>Protège contre la pluie, le vent, soleil excessif</li>
+                        <li>Prolonge les saisons de culture</li>
+                        <li>Permet de gérer la température et l'humidité</li>
+                    </ul>
+                                                                                <button class="whatsapp" onclick="order('FILET DE SERRE')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/rouleau grillage.jpeg" alt="ROULEAUX DE GRILLAGE GALVANIS">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>ROULEAUX DE GRILLAGE GALVANIS</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Résistant à l'oxydation</li>
+                        <li>Protection volaille</li>
+                        <li>Adapté à la délimitation</li>
+                        <li>Cloture de chantier</li>
+                    </ul>
+                                                                                <button class="whatsapp" onclick="order('ROULEAU DE GRILLAGE GALVANIS')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/cageot.jpeg" alt="CAGEOT AGRICOLE POUR RECOLTE">
+                </div>
+                <div class="product-info">
+                    <div class="category">Matériel agricole</div>
+                    <h3>CAGEOT AGRICOLE POUR RECOLTE</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Permet la circulation de l'air pour éviter la pourriture</li>
+                        <li>Capacité de s'empiler les uns sur les autres sans écraser les produits</li>
+                        <li>Poignées ergonomiques pour faciliter le soulévement manuel</li>
+                    </ul>
+                                                                                <button class="whatsapp" onclick="order('CAGEOT AGRICOLE POUR RECOLTE')">Commander</button>
+
+                </div>
+            </div>
+            
+        
+
+            <!-- Sous-partie 4 : Matériels Avicoles -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/abreuvoirs.jpeg" alt="ABREUVOIRS">
+                </div>
+                <div class="product-info">
+                    <div class="category">Élevage</div>
+                    <h3>ABREUVOIRS</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Disponible en 10 litres; 5 litres et 1,5 Litres</li>
+                    </ul>
+                                                                                <button class="whatsapp" onclick="order('ABREUVOIR')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/déplumeuse.jpeg" alt="PLUMEUSE DE VOLAILLE">
+                </div>
+                <div class="product-info">
+                    <div class="category">Élevage</div>
+                    <h3>PLUMEUSE DE VOLAILLE</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Un appareil professionnel pour la plumaison de tous types de volailles</li>
+                        <li>En raison de sa manipulation simple, il est parfaitement adapté à une utilisation dans l'agriculture ainsi que dans les exploitations agricoles </li>
+                    </ul>
+                                                                                <button class="whatsapp" onclick="order('PLUMEUSE DE VOLAILLE')">Commander</button>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="image/cage.jpeg" alt="CAGE DE TRANSPORT DE VOLAILLE">
+                </div>
+                <div class="product-info">
+                    <div class="category">Élevage</div>
+                    <h3>CAGE DE TRANSPORT DE VOLAILLE</h3>
+                    <h4>Caractéristiques :</h4>
+                    <ul>
+                        <li>Empilable pour optimiser l'espace</li>
+                        <li>Structure ajourée assurant une circulation d'air optimale pour le bien de l'animal </li>
+                        <li>Portes avec système de fermeture sécurisé (coulissant)</li>
+                        <li>C'est fait à base de plasitque robuste, facile à nettoyer et désinfecter</li>
+                    </ul>
+                                                            <button class="whatsapp" onclick="order('CAGE DE TRANSPORT DE VOLAILLE')">Commander</button>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contactez-nous</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <p><strong>Adresse :</strong> Poste Thiaroye, Dakar, Sénégal</p>
+                    <p><strong>Téléphone :</strong> +221 78 013 51 07 / 77 878 43 27</p>
+                    <p><strong>Email :</strong> trao2@live.fr</p>
+                    <p><strong>Horaires :</strong> <li>Lun - Sam : 8h00 - 18h00</li>
+                        <li>Dim : 8h00 - 15h00</li>
+                </div>
+                <h4>Veuillez cliquer sur ces liens pour nous contacter via les réseaux sociaux:</h4>
+                <ul>
+            <li class="FACEBOOK">
+                <a href="https://www.facebook.com/share/18CYXu5JhN/?mibextid=wwXIfr"> <img src="image/face.webp" alt="FACEBOOK" width="30px"></a>
+            </li>
+        </ul>
+        <ul>
+            <li class="INSTAGRAM">
+                <a href="https://www.instagram.com/ets_traore?igsh=dXRwa29hMnY0dzhw&utm_source=qr"> <img src="image/insta.webp" alt="INSTAGRAM" width="50px"></a>
+            </li>
+        </ul>
+            </div>
+        </div>
+    </section>
+    <!-- 1. Le Bouton HTML -->
+<button id="backToTop" title="Retour en haut">↑</button>
+
+<style>
+/* 2. Le style CSS pour le fixer en bas à droite */
+#backToTop {
+  display: none;          /* Masqué au chargement */
+  position: fixed;        /* Fixe par rapport à la fenêtre */
+  bottom: 20px;           /* Distance du bas */
+  right: 20px;            /* Distance de la droite */
+  z-index: 1000;          /* Toujours au-dessus des autres éléments */
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;     /* Forme ronde */
+  background-color:#25D366; /* Couleur bleue (modifiable) */
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: opacity 0.3s, background-color 0.3s;
+}
+
+#backToTop:hover {
+  background-color: #0056b3; /* Changement de couleur au survol */
+}
+</style>
+
+<script>
+// 3. Le script JavaScript pour l'affichage et l'action
+const topBtn = document.getElementById("backToTop");
+
+// Surveiller le défilement de la page
+window.onscroll = function() {
+  // Affiche le bouton après 300px de scroll
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+};
+
+// Action au clic
+topBtn.onclick = function() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth" // Remontée fluide
+  });
+};
+function order(product) {
+    let phone = "221780135107";
+    let message = "Bonjour, je veux commander : " + product;
+    window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(message));
+}
+</script>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ADA AGRO-BUSINESS Etablissement Traoré. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
